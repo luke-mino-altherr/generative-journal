@@ -23,6 +23,8 @@ const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const repo = 'generative-journal';
+
 export default withMDX(
   withBundleAnalyzer({
     eslint: {
@@ -30,7 +32,8 @@ export default withMDX(
     },
     poweredByHeader: false,
     trailingSlash: true,
-    basePath: '',
+    assetPrefix: `/${repo}/`,
+    basePath: `/${repo}`,
     webpack: (config) => {
       config.module.rules.push({
         test: /\.(js|jsx)$/,
