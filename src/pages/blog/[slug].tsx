@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import React from 'react';
 
+import * as components from '@/components';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { getArticleFromSlug, getArticles } from '@/utils/mdx';
@@ -23,7 +24,7 @@ export default function Blog({ post: { source, data } }: IBlogProps) {
         <div>
           <h1>{data.title}</h1>
           <div className="content">
-            <MDXRemote {...source} />
+            <MDXRemote {...source} components={components} />
           </div>
         </div>
       </Main>
