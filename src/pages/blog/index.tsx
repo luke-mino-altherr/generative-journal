@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
-import { getPosts } from '@/utils/posts';
+import { getArticles } from '@/utils/mdx';
 
 const Blog = ({ posts }: any) => {
   return (
@@ -24,7 +24,7 @@ export default Blog;
 export async function getStaticProps() {
   return {
     props: {
-      posts: getPosts(),
+      posts: getArticles(),
     },
   };
 }
