@@ -7,7 +7,10 @@ const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
   ssr: false,
 }); // Import this for typechecking and intellisense
 
-type ITextEffectProps = {};
+type IWordParticleProps = {
+  width: number;
+  height: number;
+};
 
 class Particle {
   char: string;
@@ -24,8 +27,8 @@ class Particle {
     this.char = char;
     this.pos = p5.createVector(x, y);
     this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-    this.acc = p5.createVector(0, 0.1);
-    this.lifespan = 255;
+    this.acc = p5.createVector(0, p5.random(0.05, 0.2));
+    this.lifespan = 500;
   }
 
   update() {
@@ -48,8 +51,12 @@ class Particle {
   }
 }
 
-const WordParticle: React.FC<ITextEffectProps> = () => {
+const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   const particles: Particle[] = [];
+
+  let lastTimeExecuted = 0;
+
+  let timeTolerance = 1000;
 
   const loadNewParticles = (p5: p5Types) => {
     const str: string = 'Hello, world!';
@@ -66,7 +73,8 @@ const WordParticle: React.FC<ITextEffectProps> = () => {
 
   // See annotations in JS for more information
   const setup = (p5: p5Types) => {
-    p5.createCanvas(1000, 500);
+    const renderer = p5.createCanvas(width, height);
+    renderer.position(0, 0).style('z-index', '-1');
     p5.textFont('Helvetica');
     p5.textSize(32);
     p5.fill(255);
@@ -76,7 +84,11 @@ const WordParticle: React.FC<ITextEffectProps> = () => {
   const draw = (p5: p5Types) => {
     p5.background(220);
 
-    if (p5.millis() % 10 === 0) Array(10).fill(p5).forEach(loadNewParticles);
+    if (p5.millis() - lastTimeExecuted > timeTolerance) {
+      Array(10).fill(p5).forEach(loadNewParticles);
+      lastTimeExecuted = p5.millis();
+      timeTolerance = p5.random(300, 2000);
+    }
 
     // Update and display all particles
     for (let i = particles.length - 1; i >= 0; i -= 1) {
