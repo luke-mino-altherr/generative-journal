@@ -15,6 +15,10 @@ module.exports = {
       '6xl': '4rem',
     },
     extend: {
+      fontFamily: {
+        sans: ['Nunito Sans', 'sans-serif'],
+        serif: ['Bodoni Moda', 'sans-serif'],
+      },
       colors: {
         gray: {
           100: '#f7fafc',

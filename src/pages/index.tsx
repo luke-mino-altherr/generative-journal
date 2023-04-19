@@ -37,7 +37,6 @@ const Index = () => {
         <Meta title={AppConfig.title} description={AppConfig.description} />
       }
     >
-      <h1>Luke Mino-Altherr</h1>
       {screenDimensions.width !== 0 && (
         <WordParticle
           width={screenDimensions.width}

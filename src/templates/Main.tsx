@@ -1,52 +1,53 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-import { AppConfig } from '@/utils/AppConfig';
-
 type IMainProps = {
   meta: ReactNode;
   children: ReactNode;
 };
 
 const Main = (props: IMainProps) => (
-  <div className="w-full px-1 text-gray-700 antialiased">
+  <div className="w-full text-gray-700 antialiased">
     {props.meta}
 
-    <div className="mx-auto max-w-screen-md">
+    <div className="mx-auto">
       <header className="border-b border-gray-300">
-        <div className="pb-8 pt-16">
-          <h1 className="text-3xl font-bold text-gray-900">
-            {AppConfig.title}
-          </h1>
-          <h2 className="text-xl">{AppConfig.description}</h2>
+        <div className="grid h-10 w-full grid-cols-2 bg-black px-3 py-2">
+          <div>
+            <h1 className="leading-6 text-white">
+              gen <span className="text-xs">by</span> minalt
+            </h1>
+          </div>
+          <div className="">
+            <nav>
+              <ul className="flex flex-wrap justify-end text-sm leading-6">
+                <li className="mr-3">
+                  <Link
+                    href="/"
+                    className="border-none text-white hover:text-gray-300"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/blog/"
+                    className="border-none text-white hover:text-gray-300"
+                  >
+                    Blog
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <nav>
-          <ul className="flex flex-wrap text-xl">
-            <li className="mr-6">
-              <Link
-                href="/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="mr-6">
-              <Link
-                href="/blog/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </nav>
       </header>
 
-      <main className="content py-5 text-xl">{props.children}</main>
+      <main className="content mx-auto max-w-screen-md p-5">
+        {props.children}
+      </main>
 
-      <footer className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()} {AppConfig.title}.
-      </footer>
+      <footer className="py-8 text-center text-sm "></footer>
     </div>
   </div>
 );
