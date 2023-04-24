@@ -12,15 +12,15 @@ const Main = (props: IMainProps) => (
 
     <div className="mx-auto">
       <header>
-        <div className="grid h-10 w-full grid-cols-2 bg-black px-3 py-2">
+        <div className="grid h-14 w-full grid-cols-2 bg-black px-4 py-2">
           <div>
-            <h1 className="leading-6 text-white">
-              gen <span className="text-xs">by</span> minalt
+            <h1 className="text-2xl leading-8 text-white">
+              gen <span className="text-sm">by minalt</span>
             </h1>
           </div>
           <div className="">
             <nav>
-              <ul className="flex flex-wrap justify-end text-sm leading-6">
+              <ul className="flex flex-wrap justify-end text-sm leading-10">
                 <li className="mr-3">
                   <Link
                     href="/"
