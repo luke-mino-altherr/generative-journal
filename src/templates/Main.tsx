@@ -11,7 +11,7 @@ const Main = (props: IMainProps) => (
     {props.meta}
 
     <div className="mx-auto">
-      <header className="border-b border-gray-300">
+      <header>
         <div className="grid h-10 w-full grid-cols-2 bg-black px-3 py-2">
           <div>
             <h1 className="leading-6 text-white">

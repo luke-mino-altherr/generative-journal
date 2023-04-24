@@ -23,12 +23,16 @@ class Particle {
 
   lifespan: number;
 
+  z: number;
+
   constructor(p5: p5Types, char: string, x: number, y: number) {
     this.char = char;
+    this.lifespan = 2500;
+    this.z = p5.floor(p5.random(8, 32));
+
     this.pos = p5.createVector(x, y);
-    this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-    this.acc = p5.createVector(0, p5.random(0.05, 0.2));
-    this.lifespan = 500;
+    this.vel = p5.createVector(p5.random(-0.1, 0.1), p5.random(0, 1));
+    this.acc = p5.createVector(0, p5.random(0.01, 0.05) / (this.z / 10));
   }
 
   update() {
@@ -38,6 +42,8 @@ class Particle {
   }
 
   display(p5: p5Types) {
+    p5.textSize(this.z);
+    p5.fill(p5.map(this.z, 0, 32, 0, 255));
     p5.text(this.char, this.pos.x, this.pos.y);
   }
 
@@ -45,7 +51,7 @@ class Particle {
     return (
       this.pos.x < 0 ||
       this.pos.x > p5.width ||
-      this.pos.y < 0 ||
+      // this.pos.y < 0 ||
       this.pos.y > p5.height
     );
   }
@@ -59,13 +65,13 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   let timeTolerance = 1000;
 
   const loadNewParticles = (p5: p5Types) => {
-    const str: string = 'Hello, world!';
+    const str: string = 'Hello world';
     for (let i = 0; i < str.length; i += 1) {
       const p = new Particle(
         p5,
         str.charAt(i),
         p5.random(p5.width),
-        p5.random(p5.height)
+        p5.random(-200, -50)
       );
       particles.push(p);
     }
@@ -75,17 +81,15 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   const setup = (p5: p5Types) => {
     const renderer = p5.createCanvas(width, height);
     renderer.position(0, 0).style('z-index', '-1');
-    p5.textFont('Helvetica');
-    p5.textSize(32);
-    p5.fill(255);
+    p5.textFont('Nunito Sans');
     p5.noStroke();
   };
 
   const draw = (p5: p5Types) => {
-    p5.background(220);
+    p5.background(0);
 
     if (p5.millis() - lastTimeExecuted > timeTolerance) {
-      Array(10).fill(p5).forEach(loadNewParticles);
+      Array(40).fill(p5).forEach(loadNewParticles);
       lastTimeExecuted = p5.millis();
       timeTolerance = p5.random(300, 2000);
     }
