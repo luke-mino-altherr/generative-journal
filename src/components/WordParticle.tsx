@@ -27,12 +27,12 @@ class Particle {
 
   constructor(p5: p5Types, char: string, x: number, y: number) {
     this.char = char;
-    this.lifespan = 2500;
-    this.z = p5.floor(p5.random(8, 32));
+    this.lifespan = 300;
+    this.z = p5.random();
 
     this.pos = p5.createVector(x, y);
-    this.vel = p5.createVector(p5.random(-0.1, 0.1), p5.random(0, 1));
-    this.acc = p5.createVector(0, p5.random(0.01, 0.05) / (this.z / 10));
+    this.vel = p5.createVector(p5.random(-0.1, 0.1), p5.random(0.5, 1));
+    this.acc = p5.createVector(0, 3 / p5.map(this.z, 0, 1, 40, 80));
   }
 
   update() {
@@ -42,8 +42,8 @@ class Particle {
   }
 
   display(p5: p5Types) {
-    p5.textSize(this.z);
-    p5.fill(p5.map(this.z, 0, 32, 0, 255));
+    p5.textSize(p5.floor(p5.map(this.z, 0, 1, 2, 24)));
+    p5.fill(p5.map(this.z, 0, 1, 0, 230));
     p5.text(this.char, this.pos.x, this.pos.y);
   }
 
@@ -55,6 +55,10 @@ class Particle {
       this.pos.y > p5.height
     );
   }
+
+  toDelete(p5: p5Types): boolean {
+    return this.isOffscreen(p5) || this.lifespan < 0;
+  }
 }
 
 const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
@@ -65,13 +69,13 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   let timeTolerance = 1000;
 
   const loadNewParticles = (p5: p5Types) => {
-    const str: string = 'Hello world';
+    const str: string = 'Helloworld';
     for (let i = 0; i < str.length; i += 1) {
       const p = new Particle(
         p5,
         str.charAt(i),
         p5.random(p5.width),
-        p5.random(-200, -50)
+        p5.random(-300, 0)
       );
       particles.push(p);
     }
@@ -91,7 +95,7 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
     if (p5.millis() - lastTimeExecuted > timeTolerance) {
       Array(40).fill(p5).forEach(loadNewParticles);
       lastTimeExecuted = p5.millis();
-      timeTolerance = p5.random(300, 2000);
+      timeTolerance = p5.random(400, 700);
     }
 
     // Update and display all particles
@@ -101,7 +105,7 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
       p!.display(p5);
 
       // Remove particles that are offscreen
-      if (p!.isOffscreen(p5) || p!.lifespan < 0) {
+      if (p!.toDelete(p5)) {
         particles.splice(i, 1);
       }
     }

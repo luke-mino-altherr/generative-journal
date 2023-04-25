@@ -12,7 +12,7 @@ const Main = (props: IMainProps) => (
 
     <div className="mx-auto">
       <header>
-        <div className="grid h-14 w-full grid-cols-2 bg-black px-4 py-2">
+        <div className="transparent-gradient grid h-14 w-full grid-cols-2 bg-black px-4 py-2">
           <div>
             <h1 className="text-2xl leading-8 text-white">
               gen <span className="text-sm">by minalt</span>

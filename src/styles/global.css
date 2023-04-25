@@ -29,3 +29,7 @@ p {
 .content ul {
   @apply my-6;
 }
+
+.transparent-gradient {
+  background: linear-gradient(black, transparent);
+}
