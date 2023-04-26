@@ -1,35 +1,11 @@
-import { useEffect, useState } from 'react';
-
 import { WordParticle } from '@/components/p5/WordParticle';
+import { useScreenDimensions } from '@/hooks/screenDimensions';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
 
 const Index = () => {
-  const [screenDimensions, setScreenDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (typeof window !== 'undefined') {
-        setScreenDimensions({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-    };
-    if (typeof window !== 'undefined') {
-      handleResize();
-      window.addEventListener('resize', handleResize);
-    }
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', handleResize);
-      }
-    };
-  }, []);
+  const screenDimensions = useScreenDimensions();
 
   return (
     <Main
