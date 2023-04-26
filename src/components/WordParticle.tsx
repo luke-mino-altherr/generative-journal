@@ -19,26 +19,37 @@ class Particle {
 
   vel: Vector;
 
+  ogVel: Vector;
+
   acc: Vector;
 
-  lifespan: number;
+  x: number;
+
+  y: number;
 
   z: number;
 
-  constructor(p5: p5Types, char: string, x: number, y: number) {
+  constructor(p5: p5Types, char: string) {
     this.char = char;
-    this.lifespan = 300;
     this.z = p5.random();
 
-    this.pos = p5.createVector(x, y);
+    this.x = p5.random(p5.width);
+    this.y = p5.random(-400, 0);
+
+    this.pos = p5.createVector(this.x, this.y);
     this.vel = p5.createVector(p5.random(-0.1, 0.1), p5.random(0.5, 1));
+    this.ogVel = this.vel.copy();
     this.acc = p5.createVector(0, 3 / p5.map(this.z, 0, 1, 40, 80));
   }
 
-  update() {
+  update(p5: p5Types) {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
-    this.lifespan -= 1;
+
+    if (this.isOffscreen(p5)) {
+      this.pos = p5.createVector(this.x, this.y);
+      this.vel = this.ogVel.copy();
+    }
   }
 
   display(p5: p5Types) {
@@ -48,35 +59,17 @@ class Particle {
   }
 
   isOffscreen(p5: p5Types): boolean {
-    return (
-      this.pos.x < 0 ||
-      this.pos.x > p5.width ||
-      // this.pos.y < 0 ||
-      this.pos.y > p5.height
-    );
-  }
-
-  toDelete(p5: p5Types): boolean {
-    return this.isOffscreen(p5) || this.lifespan < 0;
+    return this.pos.x < 0 || this.pos.x > p5.width || this.pos.y > p5.height;
   }
 }
 
 const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   const particles: Particle[] = [];
 
-  let lastTimeExecuted = 0;
-
-  let timeTolerance = 1000;
-
   const loadNewParticles = (p5: p5Types) => {
     const str: string = 'Helloworld';
     for (let i = 0; i < str.length; i += 1) {
-      const p = new Particle(
-        p5,
-        str.charAt(i),
-        p5.random(p5.width),
-        p5.random(-300, 0)
-      );
+      const p = new Particle(p5, str.charAt(i));
       particles.push(p);
     }
   };
@@ -87,27 +80,17 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
     renderer.position(0, 0).style('z-index', '-1');
     p5.textFont('Nunito Sans');
     p5.noStroke();
+    Array(100).fill(p5).forEach(loadNewParticles);
   };
 
   const draw = (p5: p5Types) => {
     p5.background(0);
 
-    if (p5.millis() - lastTimeExecuted > timeTolerance) {
-      Array(40).fill(p5).forEach(loadNewParticles);
-      lastTimeExecuted = p5.millis();
-      timeTolerance = p5.random(400, 700);
-    }
-
     // Update and display all particles
     for (let i = particles.length - 1; i >= 0; i -= 1) {
       const p = particles[i];
-      p!.update();
+      p!.update(p5);
       p!.display(p5);
-
-      // Remove particles that are offscreen
-      if (p!.toDelete(p5)) {
-        particles.splice(i, 1);
-      }
     }
   };
 
