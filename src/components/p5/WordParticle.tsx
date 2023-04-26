@@ -10,6 +10,7 @@ const Sketch = dynamic(() => import('react-p5').then((mod) => mod.default), {
 type IWordParticleProps = {
   width: number;
   height: number;
+  fullScreen: boolean;
 };
 
 class Particle {
@@ -63,7 +64,11 @@ class Particle {
   }
 }
 
-const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
+const WordParticle: React.FC<IWordParticleProps> = ({
+  width,
+  height,
+  fullScreen,
+}) => {
   const particles: Particle[] = [];
 
   const loadNewParticles = (p5: p5Types) => {
@@ -77,7 +82,7 @@ const WordParticle: React.FC<IWordParticleProps> = ({ width, height }) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types) => {
     const renderer = p5.createCanvas(width, height);
-    renderer.position(0, 0).style('z-index', '-1');
+    if (fullScreen) renderer.position(0, 0).style('z-index', '-1');
     p5.textFont('Nunito Sans');
     p5.noStroke();
     Array(100).fill(p5).forEach(loadNewParticles);

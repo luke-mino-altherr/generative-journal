@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import React from 'react';
 
-import * as components from '@/components';
+import * as components from '@/components/p5';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { getArticleFromSlug, getArticles } from '@/utils/mdx';

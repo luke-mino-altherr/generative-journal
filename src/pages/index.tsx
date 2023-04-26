@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { WordParticle } from '@/components/WordParticle';
+import { WordParticle } from '@/components/p5/WordParticle';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
@@ -41,6 +41,7 @@ const Index = () => {
         <WordParticle
           width={screenDimensions.width}
           height={screenDimensions.height}
+          fullScreen={true}
         />
       )}
     </Main>
