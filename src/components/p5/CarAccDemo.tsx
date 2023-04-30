@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import type p5Types from 'p5';
+import type { Vector } from 'p5';
 // import type { Vector } from 'p5';
 import React from 'react';
 
@@ -12,18 +13,28 @@ type IDrawingProps = {
   height: number;
 };
 
-const Drawing: React.FC<IDrawingProps> = ({ width, height }) => {
-  const setup = (p5: p5Types) => {
-    p5.createCanvas(width, height);
-    // const renderer = p5.createCanvas(width, height);
-    // renderer.position(0, 0).style('z-index', '-1');
+const CarAccDemo: React.FC<IDrawingProps> = ({ width, height }) => {
+  let location: Vector;
+
+  let velocity: Vector;
+
+  let acceleration: Vector;
+
+  const setup = (p5: p5Types, canvasParentRef: Element) => {
+    p5.createCanvas(width, height).parent(canvasParentRef);
+    location = p5.createVector(width / 2, height / 2);
+    velocity = p5.createVector(0, 0);
   };
 
   const draw = (p5: p5Types) => {
     p5.background(0);
+    location = location.add(velocity);
+    velocity = velocity.add(acceleration);
+
+    p5.rect(location.x, location.y, 30, 10);
   };
 
   return <Sketch setup={setup} draw={draw} />;
 };
 
-export { Drawing };
+export { CarAccDemo };

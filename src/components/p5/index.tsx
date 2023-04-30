@@ -1,3 +1,5 @@
+import { CarAccDemo } from './CarAccDemo';
 import { RotatingText } from './RotatingText';
+import { WordParticle } from './WordParticle';
 
-export { RotatingText };
+export { CarAccDemo, RotatingText, WordParticle };

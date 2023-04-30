@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import path from 'path';
 
 const articlesPath = path.join(process.cwd(), 'src', 'articles');
+const drawingsPath = path.join(process.cwd(), 'src', 'drawings');
 
 export function getSlug(filePath: string) {
   const pathContent = filePath.split('/');
@@ -12,7 +13,7 @@ export function getSlug(filePath: string) {
   return slug;
 }
 
-const getArticleFromPath = (filePath: string) => {
+const getMdxContentFromPath = (filePath: string) => {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
   const slug = getSlug(filePath);
@@ -21,14 +22,21 @@ const getArticleFromPath = (filePath: string) => {
 
 const getArticleFromSlug = (slug: string) => {
   const filePath = path.join(articlesPath, `${slug}.mdx`);
-  return getArticleFromPath(filePath);
+  return getMdxContentFromPath(filePath);
 };
 
 const getArticles = () => {
   const paths = sync(`${articlesPath}/*.mdx`);
   return paths.map((p: string) => {
-    return getArticleFromPath(p);
+    return getMdxContentFromPath(p);
   });
 };
 
-export { getArticleFromSlug, getArticles };
+const getDrawings = () => {
+  const paths = sync(`${drawingsPath}/*.mdx`);
+  return paths.map((p: string) => {
+    return getMdxContentFromPath(p);
+  });
+};
+
+export { getArticleFromSlug, getArticles, getDrawings };

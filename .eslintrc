@@ -62,7 +62,8 @@
         "unused-imports/no-unused-vars": [
           "error",
           { "argsIgnorePattern": "^_" }
-        ]
+        ],
+        "no-param-reassign": "warn"
       }
     },
     // Configuration for testing

@@ -13,8 +13,8 @@ type IDrawingProps = {
 };
 
 const Drawing: React.FC<IDrawingProps> = ({ width, height }) => {
-  const setup = (p5: p5Types) => {
-    p5.createCanvas(width, height);
+  const setup = (p5: p5Types, canvasParentRef: Element) => {
+    p5.createCanvas(width, height).parent(canvasParentRef);
     // const renderer = p5.createCanvas(width, height);
     // renderer.position(0, 0).style('z-index', '-1');
   };

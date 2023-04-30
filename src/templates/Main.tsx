@@ -7,14 +7,13 @@ type IMainProps = {
 };
 
 const Main = (props: IMainProps) => (
-  <div className="w-full text-gray-700 antialiased">
+  <div className="w-full antialiased">
     {props.meta}
-
     <div className="mx-auto">
       <header>
-        <div className="transparent-gradient grid h-14 w-full grid-cols-2 bg-black px-4 py-2">
+        <div className="white-transparent-gradient dark:black-transparent-gradient grid h-14 w-full grid-cols-2 px-4 py-2">
           <div>
-            <h1 className="text-2xl leading-8 text-white">
+            <h1 className="text-2xl leading-8 dark:text-white">
               gen <span className="text-sm">by minalt</span>
             </h1>
           </div>
@@ -24,17 +23,17 @@ const Main = (props: IMainProps) => (
                 <li className="mr-3">
                   <Link
                     href="/"
-                    className="border-none text-white hover:text-gray-300"
+                    className="border-none dark:text-white dark:hover:text-gray-300"
                   >
                     Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/blog/"
-                    className="border-none text-white hover:text-gray-300"
+                    href="/drawings/"
+                    className="border-none dark:text-white dark:hover:text-gray-300"
                   >
-                    Blog
+                    Drawings
                   </Link>
                 </li>
               </ul>

@@ -2,6 +2,10 @@
 
 @tailwind base;
 
+body {
+  @apply dark:text-white
+}
+
 a {
   @apply text-blue-700;
 }
@@ -30,6 +34,12 @@ p {
   @apply my-6;
 }
 
-.transparent-gradient {
-  background: linear-gradient(black, transparent);
+@layer components {
+  .black-transparent-gradient {
+    background: linear-gradient(black, transparent);
+  }
+
+  .white-transparent-gradient {
+    background: linear-gradient(white, transparent);
+  }
 }
