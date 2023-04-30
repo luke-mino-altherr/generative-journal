@@ -17,12 +17,17 @@ const Drawings = ({ posts }: any) => {
       <h2 className="text-center text-xl">Drawings</h2>
       <div className="grid justify-center gap-3 pt-3 md:grid-cols-2">
         {sortedPosts.map((post: any) => (
-          <div className="border-grey-100 m-1 w-min border p-4" key={post.slug}>
+          <div
+            className="m-1 w-min border border-gray-300 p-4 dark:border-gray-400"
+            key={post.slug}
+          >
             <MDXRemote {...post.source} components={components} />
             <h3 className="pt-2 text-sm font-bold uppercase">
               {post.data.title}
             </h3>
-            <h4 className="text-xs text-gray-700">{post.data.publishedOn}</h4>
+            <h4 className="text-xs text-gray-700 dark:text-gray-400">
+              {post.data.publishedOn}
+            </h4>
           </div>
         ))}
       </div>
