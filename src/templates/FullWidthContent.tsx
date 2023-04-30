@@ -7,19 +7,17 @@ type IMainProps = {
   children: ReactNode;
 };
 
-const Main = (props: IMainProps) => (
+const FullWidthContent = (props: IMainProps) => (
   <div className="w-full antialiased">
     {props.meta}
     <div className="mx-auto">
       <Header />
 
-      <main className="content mx-auto max-w-screen-md p-5">
-        {props.children}
-      </main>
+      <main className="content">{props.children}</main>
 
-      <footer className="py-8 text-center text-sm "></footer>
+      <footer className="py-1 text-center text-sm "></footer>
     </div>
   </div>
 );
 
-export { Main };
+export { FullWidthContent };
