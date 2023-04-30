@@ -1,7 +1,8 @@
-import { WordParticle } from '@/components/p5';
+import { Sketch } from '@/components/p5/Sketch';
 import { useDarkMode } from '@/hooks/darkMode';
 import { useScreenDimensions } from '@/hooks/screenDimensions';
 import { Meta } from '@/layouts/Meta';
+import { WordParticle } from '@/sketch';
 import { Main } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
 
@@ -16,7 +17,8 @@ const Index = () => {
       }
     >
       {screenDimensions.width !== 0 && (
-        <WordParticle
+        <Sketch
+          SketchComponent={WordParticle}
           width={screenDimensions.width}
           height={screenDimensions.height}
           fullScreen={true}
