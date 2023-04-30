@@ -23,7 +23,7 @@ const Main = (props: IMainProps) => (
                 <li className="mr-3">
                   <Link
                     href="/"
-                    className="border-none dark:text-white dark:hover:text-gray-300"
+                    className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
                   >
                     Home
                   </Link>
@@ -31,7 +31,7 @@ const Main = (props: IMainProps) => (
                 <li>
                   <Link
                     href="/drawings/"
-                    className="border-none dark:text-white dark:hover:text-gray-300"
+                    className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
                   >
                     Drawings
                   </Link>
