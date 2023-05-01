@@ -25,6 +25,11 @@ const getArticleFromSlug = (slug: string) => {
   return getMdxContentFromPath(filePath);
 };
 
+const getDrawingFromSlug = (slug: string) => {
+  const filePath = path.join(drawingsPath, `${slug}.mdx`);
+  return getMdxContentFromPath(filePath);
+};
+
 const getArticles = () => {
   const paths = sync(`${articlesPath}/*.mdx`);
   return paths.map((p: string) => {
@@ -39,4 +44,4 @@ const getDrawings = () => {
   });
 };
 
-export { getArticleFromSlug, getArticles, getDrawings };
+export { getArticleFromSlug, getArticles, getDrawingFromSlug, getDrawings };

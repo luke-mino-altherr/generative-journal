@@ -1,4 +1,7 @@
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { sortBy } from 'lodash';
+import Link from 'next/link';
 import { serialize } from 'next-mdx-remote/serialize';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -48,12 +51,24 @@ const Drawings = ({ posts }: any) => {
                 fullScreen={false}
                 darkMode={true}
               />
-              <h3 className="pt-2 text-sm font-bold uppercase">
-                {post.data.title}
-              </h3>
-              <h4 className="text-xs text-gray-700 dark:text-gray-400">
-                {post.data.publishedOn}
-              </h4>
+              <div className="grid grid-cols-4 pt-2 ">
+                <div className="col-span-3">
+                  <h3 className="text-sm font-bold uppercase">
+                    {post.data.title}
+                  </h3>
+                  <h4 className="text-xs text-gray-700 dark:text-gray-400">
+                    {post.data.publishedOn}
+                  </h4>
+                </div>
+                <div className="text-right">
+                  <Link
+                    href={`/drawings/${post.data.slug}`}
+                    className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+                  >
+                    <FontAwesomeIcon icon={faExpand} size="sm" />
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
       </div>

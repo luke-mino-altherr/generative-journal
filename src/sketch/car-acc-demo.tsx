@@ -1,7 +1,12 @@
 import type p5Types from 'p5';
 import type { Vector } from 'p5';
 
-const Sketch = (p5: p5Types, width: number, height: number) => {
+const Sketch = (
+  p5: p5Types,
+  width: number,
+  height: number,
+  fullScreen: boolean
+) => {
   const backgroundColor = 0;
 
   let location: Vector;
@@ -24,7 +29,9 @@ const Sketch = (p5: p5Types, width: number, height: number) => {
   };
 
   p5.setup = () => {
-    p5.createCanvas(width, height);
+    const renderer = p5.createCanvas(width, height);
+    if (fullScreen) renderer.position(0, 0).style('z-index', '-1');
+
     location = p5.createVector(width / 2, height / 2);
     velocity = p5.createVector(0, 0);
     acceleration = p5.createVector(0, 0);
