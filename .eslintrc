@@ -63,7 +63,7 @@
           "error",
           { "argsIgnorePattern": "^_" }
         ],
-        "no-param-reassign": "warn"
+        "no-param-reassign": "off"
       }
     },
     // Configuration for testing
