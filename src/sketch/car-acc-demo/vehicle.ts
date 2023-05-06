@@ -1,7 +1,7 @@
 import type p5Types from 'p5';
 import type { Vector } from 'p5';
 
-class Vehicle {
+export class Vehicle {
   width: number;
 
   height: number;
@@ -105,26 +105,3 @@ class Vehicle {
     p5.pop();
   }
 }
-
-const Sketch = (
-  p5: p5Types,
-  width: number,
-  height: number,
-  fullScreen: boolean
-) => {
-  const backgroundColor = 0;
-
-  const vehicle = new Vehicle(p5, width, height);
-
-  p5.setup = () => {
-    const renderer = p5.createCanvas(width, height);
-    if (fullScreen) renderer.position(0, 0).style('z-index', '-1');
-  };
-
-  p5.draw = () => {
-    p5.background(backgroundColor);
-    vehicle.update(p5);
-  };
-};
-
-export default Sketch;
