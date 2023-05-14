@@ -6,6 +6,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { useEffect, useMemo, useState } from 'react';
 
 import { Sketch } from '@/components/p5/Sketch';
+import { useDarkMode } from '@/hooks/darkMode';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { getDrawings } from '@/utils/mdx';
@@ -17,6 +18,8 @@ const Drawings = ({ posts }: any) => {
   const [dynamicComponents, setDynamicComponents] = useState<
     Map<string, any> | undefined
   >(undefined);
+
+  const darkMode = useDarkMode();
 
   useEffect(() => {
     posts
@@ -51,7 +54,7 @@ const Drawings = ({ posts }: any) => {
                 width={300}
                 height={300}
                 fullScreen={false}
-                darkMode={true}
+                darkMode={darkMode}
               />
               <div className="grid grid-cols-4 pt-2 ">
                 <div className="col-span-3">
