@@ -36,7 +36,9 @@ const Drawings = ({ posts }: any) => {
 
   return (
     <Main meta={<Meta title="Drawings" description="Generative drawings" />}>
-      <h2 className="text-center text-xl">Drawings</h2>
+      <h2 className="text-center font-serif text-2xl uppercase	tracking-wide">
+        Drawings
+      </h2>
       <div className="grid justify-center gap-3 pt-3 md:grid-cols-2">
         {dynamicComponents &&
           sortedPosts.map((post: any) => (
@@ -53,9 +55,7 @@ const Drawings = ({ posts }: any) => {
               />
               <div className="grid grid-cols-4 pt-2 ">
                 <div className="col-span-3">
-                  <h3 className="text-sm font-bold uppercase">
-                    {post.data.title}
-                  </h3>
+                  <h3 className="text-sm uppercase">{post.data.title}</h3>
                   <h4 className="text-xs text-gray-700 dark:text-gray-400">
                     {post.data.publishedOn}
                   </h4>

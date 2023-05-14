@@ -11,7 +11,7 @@ const Header = () => {
         </div>
         <div className="">
           <nav>
-            <ul className="flex flex-wrap justify-end text-sm leading-10">
+            <ul className="flex flex-wrap justify-end text-xs uppercase leading-10 tracking-wider">
               <li className="mr-3">
                 <Link
                   href="/"

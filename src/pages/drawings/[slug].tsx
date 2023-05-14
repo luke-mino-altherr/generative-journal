@@ -34,7 +34,17 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
     <React.Fragment>
       <Main meta={<Meta title={data.title} description={data.description} />}>
         <div>
-          <h1>{data.title}</h1>
+          <div className="fixed bottom-4 left-4 max-w-sm">
+            <h3 className="text-sm uppercase text-gray-800 dark:text-gray-300">
+              {data.title}
+            </h3>
+            <h4 className="text-xs text-gray-700 dark:text-gray-400">
+              {data.publishedOn}
+            </h4>
+            <span className="mb-0 mt-2 text-xs text-gray-500 dark:text-gray-500">
+              {data.description}
+            </span>
+          </div>
           <div className="content">
             {dynamicComponent !== undefined && (
               <Sketch
