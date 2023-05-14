@@ -7,7 +7,6 @@ export const useP5 = (
   const canvasParentRef = React.useRef<HTMLElement | null>(null);
   const setCanvasParentRef = React.useCallback(
     (node: HTMLElement | null) => {
-      console.log('node', node);
       if (node) {
         // eslint-disable-next-line
             // eslint-disable-next-line

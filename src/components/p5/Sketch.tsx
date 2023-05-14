@@ -15,9 +15,7 @@ const Sketch = ({
   fullScreen,
   darkMode,
 }: Props) => {
-  console.log('boo', SketchComponent, width, height, fullScreen, darkMode);
   const [setRef] = useP5((p5) => {
-    console.log('hi', SketchComponent, p5, width, height, fullScreen, darkMode);
     return SketchComponent(p5, width, height, fullScreen, darkMode);
   });
   return <div ref={setRef}></div>;
