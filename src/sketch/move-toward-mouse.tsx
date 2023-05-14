@@ -5,9 +5,10 @@ const Sketch = (
   p5: p5Types,
   width: number,
   height: number,
-  fullScreen: boolean
+  fullScreen: boolean,
+  darkMode: boolean
 ) => {
-  const backgroundColor = 0;
+  const backgroundColor = darkMode ? 0 : 255;
 
   let location: Vector;
 

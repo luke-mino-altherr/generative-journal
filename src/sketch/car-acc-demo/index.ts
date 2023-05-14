@@ -7,9 +7,10 @@ const Sketch = (
   p5: p5Types,
   width: number,
   height: number,
-  fullScreen: boolean
+  fullScreen: boolean,
+  darkMode: boolean
 ) => {
-  const backgroundColor = 0;
+  const backgroundColor = darkMode ? 0 : 255;
 
   const vehicle = new Vehicle(p5, width, height);
 
