@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Nunito Sans', 'sans-serif'],
+        sans: ['Kanit', 'sans-serif'],
         serif: ['Bodoni Moda', 'serif'],
       },
       colors: {

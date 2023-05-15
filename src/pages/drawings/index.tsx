@@ -59,7 +59,7 @@ const Drawings = ({ posts }: any) => {
               <div className="grid grid-cols-4 pt-2 ">
                 <div className="col-span-3">
                   <h3 className="text-sm uppercase">{post.data.title}</h3>
-                  <h4 className="text-xs text-gray-700 dark:text-gray-400">
+                  <h4 className="text-xs font-extralight text-gray-700 dark:text-gray-400">
                     {post.data.publishedOn}
                   </h4>
                 </div>

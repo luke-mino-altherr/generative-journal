@@ -38,7 +38,7 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
             <h3 className="text-sm uppercase text-gray-800 dark:text-gray-300">
               {data.title}
             </h3>
-            <h4 className="text-xs text-gray-700 dark:text-gray-400">
+            <h4 className="text-xs font-light text-gray-700 dark:text-gray-400">
               {data.publishedOn}
             </h4>
             <span className="mb-0 mt-2 text-xs text-gray-500 dark:text-gray-500">
