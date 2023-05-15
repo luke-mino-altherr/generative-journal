@@ -6,20 +6,17 @@ const Header = () => {
       <div className="white-transparent-gradient dark:black-transparent-gradient grid h-14 w-full grid-cols-2 px-4 py-2">
         <div>
           <h1 className="text-2xl leading-8 dark:text-white">
-            gen <span className="text-sm">by minalt</span>
+            <Link
+              href="/"
+              className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+            >
+              gen <span className="text-sm">by minalt</span>
+            </Link>
           </h1>
         </div>
         <div className="">
           <nav>
             <ul className="flex flex-wrap justify-end text-xs uppercase leading-10 tracking-wider">
-              <li className="mr-3">
-                <Link
-                  href="/"
-                  className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-                >
-                  Home
-                </Link>
-              </li>
               <li className="mr-3">
                 <Link
                   href="/drawings/"
