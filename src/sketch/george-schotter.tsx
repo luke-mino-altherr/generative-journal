@@ -9,7 +9,7 @@ class RotatingSquare {
 
   constructor(p5: p5Types, centerX: number, centerY: number, row: number) {
     this.center = p5.createVector(centerX, centerY);
-    this.noiseAmplitude = (row + 1) * 0.1;
+    this.noiseAmplitude = Math.exp((row + 1) * 0.17) * 0.1;
   }
 
   draw(p5: p5Types) {
@@ -50,7 +50,8 @@ const Sketch = (
     const numberSquaresY = Math.floor((height * 0.8) / SQUARE_SIZE);
     const xPadding =
       (width - numberSquaresX * SQUARE_SIZE) / 2 - SQUARE_SIZE / 2;
-    const yPadding = (height - numberSquaresY * SQUARE_SIZE) / 2 - SQUARE_SIZE;
+    const yPadding =
+      (height - numberSquaresY * SQUARE_SIZE) / 2 - SQUARE_SIZE - 10;
 
     for (let x = 0; x < numberSquaresX; x += 1) {
       for (let y = 0; y < numberSquaresY; y += 1) {
