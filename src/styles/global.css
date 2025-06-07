@@ -4,7 +4,32 @@
 @tailwind base;
 
 body {
-  @apply dark:text-white
+  @apply text-text-light dark:text-text-dark bg-background-light dark:bg-background-dark;
+  position: relative;
+  overscroll-behavior: none;
+}
+
+/* Film grain overlay using cardboard texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.25;
+  background-image: url('/generative-journal/assets/images/film-texture.jpg');
+  background-repeat: round;
+  background-size: 100%;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-color-scheme: light) {
+  body::before {
+    opacity: 0.8;
+  }
 }
 
 a {
@@ -20,7 +45,7 @@ h1 {
 }
 
 p {
-  @apply font-light
+  @apply font-light;
 }
 
 @tailwind components;
@@ -37,10 +62,10 @@ p {
 
 @layer components {
   .black-transparent-gradient {
-    background: linear-gradient(black, transparent);
+    background: linear-gradient(var(--background-dark), transparent);
   }
 
   .white-transparent-gradient {
-    background: linear-gradient(white, transparent);
+    background: linear-gradient(var(--background-light), transparent);
   }
 }

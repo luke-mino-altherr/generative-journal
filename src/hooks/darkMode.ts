@@ -13,9 +13,7 @@ export function useDarkMode() {
 
     // Remove listener
     return () => {
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .removeEventListener('change', () => {});
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', () => {});
     };
   }, []);
 

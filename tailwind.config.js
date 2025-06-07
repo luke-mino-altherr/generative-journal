@@ -1,3 +1,5 @@
+const { colors } = require('./src/config/theme.ts');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -31,6 +33,8 @@ module.exports = {
           800: '#2c5282',
           900: '#2a4365',
         },
+        background: colors.background,
+        text: colors.text,
       },
     },
   },

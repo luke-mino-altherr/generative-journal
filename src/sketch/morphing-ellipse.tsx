@@ -1,6 +1,8 @@
 import type p5Types from 'p5';
 import type { Vector } from 'p5';
 
+import { colors, hexToGrayscale } from '../config/theme';
+
 class SlowMorphingEllipse {
   location: Vector;
 
@@ -38,12 +40,7 @@ class SlowMorphingEllipse {
 
   draw(p5: p5Types) {
     p5.push();
-    SlowMorphingEllipse.drawWithReverb(
-      p5,
-      this.location.x,
-      this.location.y,
-      this.location.z
-    );
+    SlowMorphingEllipse.drawWithReverb(p5, this.location.x, this.location.y, this.location.z);
     p5.pop();
   }
 
@@ -64,7 +61,9 @@ const Sketch = (
   fullScreen: boolean,
   darkMode: boolean
 ) => {
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
 
   let ellipses: SlowMorphingEllipse[] = [];
 

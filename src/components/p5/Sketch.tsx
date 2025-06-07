@@ -8,13 +8,7 @@ interface Props {
   darkMode?: boolean;
 }
 
-const Sketch = ({
-  SketchComponent,
-  width,
-  height,
-  fullScreen,
-  darkMode,
-}: Props) => {
+const Sketch = ({ SketchComponent, width, height, fullScreen, darkMode }: Props) => {
   const [setRef] = useP5((p5) => {
     return SketchComponent(p5, width, height, fullScreen, darkMode);
   });

@@ -18,9 +18,7 @@ interface IDrawingProps {
 const getDynamicComponent = (c: string) => import(`@/sketch/${c}`);
 
 export default function Drawing({ post: { data } }: IDrawingProps) {
-  const [dynamicComponent, setDynamicComponent] = useState<any | undefined>(
-    undefined
-  );
+  const [dynamicComponent, setDynamicComponent] = useState<any | undefined>(undefined);
   const { width, height } = useScreenDimensions();
   const darkMode = useDarkMode();
 
@@ -32,12 +30,10 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
 
   return (
     <React.Fragment>
-      <Main meta={<Meta title={data.title} description={data.description} />}>
+      <Main hideFooter meta={<Meta title={data.title} description={data.description} />}>
         <div>
           <div className="fixed bottom-4 left-4 max-w-sm">
-            <h3 className="text-sm uppercase text-gray-800 dark:text-gray-300">
-              {data.title}
-            </h3>
+            <h3 className="text-sm uppercase text-gray-800 dark:text-gray-300">{data.title}</h3>
             <h4 className="text-xs font-light text-gray-700 dark:text-gray-400">
               {data.publishedOn}
             </h4>

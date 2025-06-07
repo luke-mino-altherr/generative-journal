@@ -1,5 +1,7 @@
 import type p5Types from 'p5';
 
+import { colors, hexToGrayscale } from '../config/theme';
+
 const SQUARE_SIZE = 15;
 
 class RotatingSquare {
@@ -16,10 +18,7 @@ class RotatingSquare {
     p5.push();
     const noise = p5.noise(this.center.x, this.center.y) * this.noiseAmplitude;
     const xDirection = p5.random(-1, 1);
-    p5.translate(
-      this.center.x + 10 * noise * xDirection,
-      this.center.y + 30 * noise
-    );
+    p5.translate(this.center.x + 10 * noise * xDirection, this.center.y + 30 * noise);
     const colorValue = p5.map(noise, 0, 50, 150, 200);
     const color = p5.color(colorValue, colorValue, colorValue, 50);
     const strokeColor = p5.color(colorValue, colorValue, colorValue, 100);
@@ -38,7 +37,9 @@ const Sketch = (
   fullScreen: boolean,
   darkMode: boolean
 ) => {
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
   const strokeColor = darkMode ? 255 : 0;
 
   const squares: RotatingSquare[] = [];

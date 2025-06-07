@@ -11,13 +11,12 @@ import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { getDrawings } from '@/utils/mdx';
 
-const getDynamicComponent = (c: string) =>
-  import(`@/sketch/${c}`).then((mod) => mod.default);
+const getDynamicComponent = (c: string) => import(`@/sketch/${c}`).then((mod) => mod.default);
 
 const Drawings = ({ posts }: any) => {
-  const [dynamicComponents, setDynamicComponents] = useState<
-    Map<string, any> | undefined
-  >(undefined);
+  const [dynamicComponents, setDynamicComponents] = useState<Map<string, any> | undefined>(
+    undefined
+  );
 
   const darkMode = useDarkMode();
 
@@ -39,9 +38,7 @@ const Drawings = ({ posts }: any) => {
 
   return (
     <Main meta={<Meta title="Drawings" description="Generative drawings" />}>
-      <h2 className="text-center font-serif text-2xl uppercase	tracking-wide">
-        Drawings
-      </h2>
+      <h2 className="text-center font-serif text-2xl uppercase tracking-wide">Drawings</h2>
       <div className="grid justify-center gap-3 pt-3 md:grid-cols-2">
         {dynamicComponents &&
           sortedPosts.map((post: any) => (

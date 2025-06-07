@@ -1,6 +1,8 @@
 import type p5Types from 'p5';
 import type { Vector } from 'p5';
 
+import { colors, hexToGrayscale } from '../config/theme';
+
 class Particle {
   darkMode: boolean;
 
@@ -76,7 +78,9 @@ const Sketch = (
   darkMode: boolean
 ) => {
   const particles: Particle[] = [];
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
 
   const loadNewParticles = () => {
     const str: string = 'Helloworld';

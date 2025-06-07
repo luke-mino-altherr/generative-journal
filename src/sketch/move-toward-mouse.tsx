@@ -1,6 +1,8 @@
 import type p5Types from 'p5';
 import type { Vector } from 'p5';
 
+import { colors, hexToGrayscale } from '../config/theme';
+
 const Sketch = (
   p5: p5Types,
   width: number,
@@ -8,7 +10,9 @@ const Sketch = (
   fullScreen: boolean,
   darkMode: boolean
 ) => {
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
 
   let location: Vector;
 

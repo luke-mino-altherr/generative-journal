@@ -1,5 +1,6 @@
 import type p5Types from 'p5';
 
+import { colors, hexToGrayscale } from '../../config/theme';
 import { AstroidSystem } from './astroid-system';
 import { Vehicle } from './vehicle';
 
@@ -10,7 +11,9 @@ const Sketch = (
   fullScreen: boolean,
   darkMode: boolean
 ) => {
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
 
   const vehicle = new Vehicle(p5, width, height);
 

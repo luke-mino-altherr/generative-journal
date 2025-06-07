@@ -1,5 +1,7 @@
 import type p5Types from 'p5';
 
+import { colors, hexToGrayscale } from '../config/theme';
+
 const SQUARE_SIZE = 30;
 
 class RotatingSquare {
@@ -16,10 +18,7 @@ class RotatingSquare {
     p5.push();
     const noise = p5.noise(this.center.x, this.center.y) * this.noiseAmplitude;
     const xDirection = p5.random(-1, 1);
-    p5.translate(
-      this.center.x + 20 * noise * xDirection,
-      this.center.y + 50 * noise
-    );
+    p5.translate(this.center.x + 20 * noise * xDirection, this.center.y + 50 * noise);
     const rotationDirection = p5.random(1, 10) > 7 ? 1 : -1;
     p5.rotate(rotationDirection * noise);
     p5.rect(0, 0, SQUARE_SIZE, SQUARE_SIZE);
@@ -34,7 +33,9 @@ const Sketch = (
   fullScreen: boolean,
   darkMode: boolean
 ) => {
-  const backgroundColor = darkMode ? 0 : 255;
+  const backgroundColor = darkMode
+    ? hexToGrayscale(colors.background.dark)
+    : hexToGrayscale(colors.background.light);
   const strokeColor = darkMode ? 255 : 0;
 
   const squares: RotatingSquare[] = [];
@@ -48,10 +49,8 @@ const Sketch = (
 
     const numberSquaresX = Math.floor((width * 0.8) / SQUARE_SIZE);
     const numberSquaresY = Math.floor((height * 0.8) / SQUARE_SIZE);
-    const xPadding =
-      (width - numberSquaresX * SQUARE_SIZE) / 2 - SQUARE_SIZE / 2;
-    const yPadding =
-      (height - numberSquaresY * SQUARE_SIZE) / 2 - SQUARE_SIZE - 10;
+    const xPadding = (width - numberSquaresX * SQUARE_SIZE) / 2 - SQUARE_SIZE / 2;
+    const yPadding = (height - numberSquaresY * SQUARE_SIZE) / 2 - SQUARE_SIZE - 10;
 
     for (let x = 0; x < numberSquaresX; x += 1) {
       for (let y = 0; y < numberSquaresY; y += 1) {

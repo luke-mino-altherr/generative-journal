@@ -9,8 +9,8 @@ export const useP5 = (
     (node: HTMLElement | null) => {
       if (node) {
         // eslint-disable-next-line
-            // eslint-disable-next-line
-        import("p5").then((p5) => {
+        // eslint-disable-next-line
+        import('p5').then((p5) => {
           // eslint-disable-next-line new-cap
           p5Ref.current = new p5.default(sketch, node);
         });
