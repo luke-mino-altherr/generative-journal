@@ -27,6 +27,7 @@ const repo = 'generative-journal';
 
 export default withMDX(
   withBundleAnalyzer({
+    output: 'export',
     eslint: {
       dirs: ['.'],
     },
@@ -48,25 +49,6 @@ export default withMDX(
             ],
           },
         },
-        parser: {
-          // Set 'sourceType: module' for all JS and JSX files
-          // This allows us to use ES6 import/export statements
-          // even in non-ES6 files (e.g. in CommonJS modules)
-          // without getting the "'import' and 'export' may appear only with 'sourceType: module'" error
-          // Note that this option is available in webpack 5 and later versions
-          // If you are using an earlier version of webpack, you may need to use a different parser
-          // For example, you can use 'webpack-merge' to merge this parser with the default parser
-          // see: https://webpack.js.org/configuration/module/#ruleparser
-          parser: {
-            javascript: {
-              // The 'sourceType' option is set to 'module'
-              // to allow ES6 import/export statements in non-ES6 files
-              // (e.g. in CommonJS modules)
-              // without getting the "'import' and 'export' may appear only with 'sourceType: module'" error
-              sourceType: 'module',
-            },
-          },
-        },
       });
       config.module.rules.push({
         test: /\.cjs$/,
@@ -77,7 +59,7 @@ export default withMDX(
             presets: ['@babel/preset-env'],
           },
         },
-        type: 'commonjs',
+        type: 'javascript/auto',
       });
       return config;
     },
