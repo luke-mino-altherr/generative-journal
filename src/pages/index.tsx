@@ -38,7 +38,7 @@ const Index = () => {
         </div>
         <div className="z-[1000] order-1 flex w-full items-center justify-center md:order-2 md:w-1/2">
           <img
-            src="/assets/images/bio-1.jpg"
+            src="/assets/images/bio-1.JPG"
             alt="Picture of Luke"
             className="relative w-full max-w-md md:max-w-none"
           />
