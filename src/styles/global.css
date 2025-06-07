@@ -20,7 +20,7 @@ body::before {
   pointer-events: none;
   z-index: 1000;
   opacity: 0.25;
-  background-image: url('/generative-journal/assets/images/film-texture.jpg');
+  background-image: url('/assets/images/film-texture.jpg');
   background-repeat: round;
   background-size: 100%;
   mix-blend-mode: overlay;

@@ -23,8 +23,6 @@ const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const repo = 'generative-journal';
-
 export default withMDX(
   withBundleAnalyzer({
     output: 'export',
@@ -33,8 +31,6 @@ export default withMDX(
     },
     poweredByHeader: false,
     trailingSlash: true,
-    assetPrefix: `/${repo}/`,
-    basePath: `/${repo}`,
     webpack: (config) => {
       config.module.rules.push({
         test: /\.(js|jsx)$/,
@@ -63,9 +59,6 @@ export default withMDX(
       });
       return config;
     },
-    // The starter code load resources from `public` folder with `router.basePath` in React components.
-    // So, the source code is "basePath-ready".
-    // You can remove `basePath` if you don't need it.
     reactStrictMode: true,
     experimental: { esmExternals: true },
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
