@@ -2,12 +2,18 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { navigationItems } from '@/config/navigation';
+import { trackNavigationClick } from '@/utils/googleAnalytics';
 
 const CollapsedNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleNavClick = (label: string) => {
+    trackNavigationClick(label);
+    toggleMenu();
   };
 
   // Prevent scrolling when menu is open
@@ -75,7 +81,7 @@ const CollapsedNav = () => {
                 <Link
                   href={item.href}
                   className="block border-none text-lg uppercase tracking-wider text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-                  onClick={toggleMenu}
+                  onClick={() => handleNavClick(item.label)}
                 >
                   {item.label}
                 </Link>

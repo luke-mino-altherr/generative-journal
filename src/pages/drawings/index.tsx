@@ -9,6 +9,7 @@ import { Sketch } from '@/components/p5/Sketch';
 import { useDarkMode } from '@/hooks/darkMode';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import { trackNavigationClick } from '@/utils/googleAnalytics';
 import { getDrawings } from '@/utils/mdx';
 
 const getDynamicComponent = (c: string) => import(`@/sketch/${c}`).then((mod) => mod.default);
@@ -19,6 +20,10 @@ const Drawings = ({ posts }: any) => {
   );
 
   const darkMode = useDarkMode();
+
+  const handleDrawingClick = (drawingSlug: string) => {
+    trackNavigationClick(`drawing_thumbnail_${drawingSlug}`);
+  };
 
   useEffect(() => {
     posts
@@ -64,6 +69,7 @@ const Drawings = ({ posts }: any) => {
                   <Link
                     href={`/drawings/${post.data.slug}`}
                     className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
+                    onClick={() => handleDrawingClick(post.data.slug)}
                   >
                     <FontAwesomeIcon icon={faExpand} size="sm" />
                   </Link>

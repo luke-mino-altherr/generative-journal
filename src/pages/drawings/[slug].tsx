@@ -5,6 +5,7 @@ import { useDarkMode } from '@/hooks/darkMode';
 import { useScreenDimensions } from '@/hooks/screenDimensions';
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
+import { trackDrawingView } from '@/utils/googleAnalytics';
 import { getDrawingFromSlug, getDrawings } from '@/utils/mdx';
 
 interface IDrawingProp {
@@ -25,8 +26,10 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
   useEffect(() => {
     getDynamicComponent(data.slug).then((c) => {
       setDynamicComponent(c);
+      // Track drawing view
+      trackDrawingView(data.slug, data.title);
     });
-  }, []);
+  }, [data.slug, data.title]);
 
   return (
     <React.Fragment>

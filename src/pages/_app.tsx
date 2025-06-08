@@ -36,6 +36,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           gtag('js', new Date());
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,
+            send_page_view: true,
+            enhanced_link_attribution: true,
           });
           `,
         }}

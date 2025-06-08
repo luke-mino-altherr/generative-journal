@@ -7,17 +7,19 @@ type IMainProps = {
   children: ReactNode;
 };
 
-const FullWidthContent = (props: IMainProps) => (
-  <div className="w-full antialiased">
-    {props.meta}
-    <div className="mx-auto">
-      <Header transparent={true} />
+const FullWidthContent = (props: IMainProps) => {
+  return (
+    <div className="w-full antialiased">
+      {props.meta}
+      <div className="mx-auto">
+        <Header transparent={true} />
 
-      <main className="content">{props.children}</main>
+        <main className="content">{props.children}</main>
 
-      <footer className="py-1 text-center text-sm "></footer>
+        <footer className="py-1 text-center text-sm "></footer>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export { FullWidthContent };

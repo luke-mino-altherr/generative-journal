@@ -1,8 +1,13 @@
 import { Meta } from '@/layouts/Meta';
 import { Main } from '@/templates/Main';
 import { AppConfig } from '@/utils/AppConfig';
+import { trackOutboundLink } from '@/utils/googleAnalytics';
 
 const Index = () => {
+  const handleOutboundClick = (url: string, label: string) => {
+    trackOutboundLink(url, label);
+  };
+
   return (
     <Main
       meta={
@@ -29,16 +34,31 @@ const Index = () => {
           <p>
             Most recently, from 2022 to 2025, I worked as a{' '}
             <span className="font-bold">Staff Software Engineer</span> at{' '}
-            <a href="https://www.therounds.co" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.therounds.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleOutboundClick('https://www.therounds.co', 'The Rounds')}
+            >
               The Rounds
             </a>
             , a sustainable food delivery service that was recently acquired by{' '}
-            <a href="https://www.misfitsmarket.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.misfitsmarket.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleOutboundClick('https://www.misfitsmarket.com', 'Misfits Market')}
+            >
               Misfits Market
             </a>
             . Before that, from 2017 to 2022, I was a{' '}
             <span className="font-bold">Lead Software Engineer</span> at{' '}
-            <a href="https://www.known.is" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.known.is"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleOutboundClick('https://www.known.is', 'Known')}
+            >
               Known
             </a>
             , where I built data products that helped drive advertising efficiency in the linear TV

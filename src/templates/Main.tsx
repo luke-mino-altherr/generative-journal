@@ -10,17 +10,19 @@ type IMainProps = {
   transparentHeader?: boolean;
 };
 
-const Main = (props: IMainProps) => (
-  <div className="w-full antialiased">
-    {props.meta}
+const Main = (props: IMainProps) => {
+  return (
+    <div className="w-full antialiased">
+      {props.meta}
 
-    <Header transparent={props.transparentHeader ?? false} />
-    <div className="mx-auto max-w-screen-md px-3">
-      <main className="content mx-auto max-w-screen-md py-14">{props.children}</main>
+      <Header transparent={props.transparentHeader ?? false} />
+      <div className="mx-auto max-w-screen-md px-3">
+        <main className="content mx-auto max-w-screen-md py-14">{props.children}</main>
 
-      {!(props.hideFooter ?? false) && <Footer />}
+        {!(props.hideFooter ?? false) && <Footer />}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export { Main };
