@@ -4,7 +4,7 @@ import { socialLinks } from '@/config/social';
 
 const Footer = () => {
   return (
-    <footer className="mt-6 border-t border-gray-300 py-6">
+    <footer className="border-t border-gray-300 py-6">
       <div className="flex items-center justify-between space-x-6">
         <div className="flex items-center text-sm text-gray-600 dark:text-gray-400">
           © {new Date().getFullYear()} Luke&nbsp;Mino-Altherr.

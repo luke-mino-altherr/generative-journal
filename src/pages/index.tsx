@@ -4,7 +4,16 @@ import { AppConfig } from '@/utils/AppConfig';
 
 const Index = () => {
   return (
-    <Main meta={<Meta title={AppConfig.title} description={AppConfig.description} />}>
+    <Main
+      meta={
+        <Meta
+          title={AppConfig.title}
+          description={AppConfig.description}
+          canonical={AppConfig.seo.siteUrl}
+          keywords={['software engineer', 'portfolio', 'san francisco']}
+        />
+      }
+    >
       <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
         <div className="order-2 w-full items-center md:order-1 md:w-1/2">
           <p>Hi, I&apos;m Luke.</p>
@@ -43,9 +52,6 @@ const Index = () => {
             className="relative w-full max-w-md md:max-w-none"
           />
         </div>
-      </div>
-      <div className="flex flex-row items-center justify-center gap-8">
-        <p></p>
       </div>
     </Main>
   );

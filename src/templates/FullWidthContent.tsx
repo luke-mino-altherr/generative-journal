@@ -11,7 +11,7 @@ const FullWidthContent = (props: IMainProps) => (
   <div className="w-full antialiased">
     {props.meta}
     <div className="mx-auto">
-      <Header />
+      <Header transparent={true} />
 
       <main className="content">{props.children}</main>
 

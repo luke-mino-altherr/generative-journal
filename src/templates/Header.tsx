@@ -2,10 +2,18 @@ import Link from 'next/link';
 
 import Navigation from '../components/Navigation/Navigation';
 
-const Header = () => {
+type HeaderProps = {
+  transparent?: boolean;
+};
+
+const Header = (props: HeaderProps) => {
   return (
-    <header>
-      <div className="white-transparent-gradient dark:black-transparent-gradient grid h-14 w-full grid-cols-[1fr,auto] pt-10">
+    <header
+      className={`sticky top-0 z-[1002] ${
+        props?.transparent ? 'bg-transparent' : 'bg-background-light dark:bg-background-dark'
+      }`}
+    >
+      <div className="white-transparent-gradient dark:black-transparent-gradient mx-auto grid h-20 w-full max-w-screen-md grid-cols-[1fr,auto] items-center px-3 sm:h-24">
         <div className="min-w-0">
           <h1 className="truncate text-2xl leading-8 dark:text-white">
             <Link

@@ -7,15 +7,16 @@ type IMainProps = {
   meta: ReactNode;
   children: ReactNode;
   hideFooter?: boolean;
+  transparentHeader?: boolean;
 };
 
 const Main = (props: IMainProps) => (
   <div className="w-full antialiased">
     {props.meta}
-    <div className="mx-auto max-w-screen-md px-3">
-      <Header />
 
-      <main className="content mx-auto max-w-screen-md pt-14">{props.children}</main>
+    <Header transparent={props.transparentHeader ?? false} />
+    <div className="mx-auto max-w-screen-md px-3">
+      <main className="content mx-auto max-w-screen-md py-14">{props.children}</main>
 
       {!(props.hideFooter ?? false) && <Footer />}
     </div>

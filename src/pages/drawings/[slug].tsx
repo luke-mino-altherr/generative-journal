@@ -30,7 +30,19 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
 
   return (
     <React.Fragment>
-      <Main hideFooter meta={<Meta title={data.title} description={data.description} />}>
+      <Main
+        hideFooter
+        transparentHeader
+        meta={
+          <Meta
+            title={data.title}
+            description={data.description}
+            type="article"
+            publishedTime={data.publishedOn}
+            keywords={['generative art', 'creative coding', 'p5.js', 'digital art']}
+          />
+        }
+      >
         <div>
           <div className="fixed bottom-4 left-4 max-w-sm">
             <h3 className="text-sm uppercase text-gray-800 dark:text-gray-300">{data.title}</h3>

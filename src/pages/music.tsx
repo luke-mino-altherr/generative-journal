@@ -10,7 +10,15 @@ const Music = () => {
     return height - 56;
   }, [height]);
   return (
-    <Main meta={<Meta title="Music" description="Music hosted on soundcloud" />}>
+    <Main
+      meta={
+        <Meta
+          title="Music"
+          description="Original music compositions and electronic music hosted on SoundCloud"
+          keywords={['music', 'electronic music', 'composition', 'soundcloud', 'audio']}
+        />
+      }
+    >
       <iframe
         height={composerlyHeight}
         width={width}
