@@ -32,44 +32,57 @@ const Projects = ({ projects }: IProjectsProps) => {
       <h2 className="text-center font-serif text-2xl uppercase tracking-wide">Software</h2>
       <div className="grid justify-center gap-3 pt-3 md:grid-cols-2">
         {projects.map((project) => (
-          <div key={project.slug} className="border border-gray-300 p-6 dark:border-gray-400">
-            <div className="mb-4">
-              <Link href={`/projects/${project.slug}`}>
-                <h2 className="text-text-light dark:text-text-dark mb-2 text-lg font-semibold hover:text-gray-700 dark:hover:text-gray-300">
-                  {project.slug.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
-                </h2>
-              </Link>
-              <p className="text-gray-600 dark:text-gray-300">{project.data.description}</p>
-            </div>
+          <div
+            key={project.slug}
+            className="min-w-80 m-1 flex-col items-center justify-center border border-gray-300 p-4 dark:border-gray-400"
+          >
+            {project.data.image && (
+              <div className="mb-4">
+                <img
+                  src={project.data.image}
+                  alt={project.slug}
+                  className="h-48 w-full object-cover object-left-top"
+                />
+              </div>
+            )}
 
-            <div className="mb-4">
-              <div className="flex flex-wrap gap-2">
+            <div className="pt-2">
+              <div className="mb-2 flex items-start justify-between">
+                <Link href={`/software/${project.slug}`}>
+                  <h3 className="text-sm uppercase hover:text-gray-700 dark:hover:text-gray-300">
+                    {project.slug.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
+                  </h3>
+                </Link>
+                {project.data.demoSite && (
+                  <a
+                    href={project.data.demoSite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleOutboundClick(project.data.demoSite!, project.slug)}
+                    className="text-xs text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+                  >
+                    View Demo →
+                  </a>
+                )}
+              </div>
+
+              <h4 className="mb-2 text-xs font-extralight text-gray-700 dark:text-gray-400">
+                Built: {new Date(project.data.dateBuilt).getFullYear()}
+              </h4>
+              <p className="mb-2 text-xs text-gray-600 dark:text-gray-300">
+                {project.data.description}
+              </p>
+
+              <div className="mb-2 flex flex-wrap gap-1">
                 {project.data.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-blue-100 px-3 py-1 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+                    className="rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                Built: {new Date(project.data.dateBuilt).getFullYear()}
-              </span>
-              {project.data.demoSite && (
-                <a
-                  href={project.data.demoSite}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleOutboundClick(project.data.demoSite!, project.slug)}
-                  className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
-                >
-                  View Demo →
-                </a>
-              )}
             </div>
           </div>
         ))}

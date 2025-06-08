@@ -48,24 +48,24 @@ const Drawings = ({ posts }: any) => {
         {dynamicComponents &&
           sortedPosts.map((post: any) => (
             <div
-              className="m-1 w-min border border-gray-300 p-4 dark:border-gray-400"
+              className="min-w-80 m-1 flex-col items-center justify-center border border-gray-300 p-4 dark:border-gray-400"
               key={post.slug}
             >
               <Sketch
                 SketchComponent={dynamicComponents.get(post.data.slug)}
-                width={300}
+                width={320}
                 height={300}
                 fullScreen={false}
                 darkMode={darkMode}
               />
-              <div className="grid grid-cols-4 pt-2 ">
-                <div className="col-span-3">
+              <div className="flex items-start justify-between pt-2">
+                <div>
                   <h3 className="text-sm uppercase">{post.data.title}</h3>
                   <h4 className="text-xs font-extralight text-gray-700 dark:text-gray-400">
                     {post.data.publishedOn}
                   </h4>
                 </div>
-                <div className="text-right">
+                <div>
                   <Link
                     href={`/drawings/${post.data.slug}`}
                     className="border-none text-black hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
