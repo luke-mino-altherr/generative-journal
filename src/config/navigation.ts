@@ -9,6 +9,10 @@ export const navigationItems: NavItem[] = [
     label: 'About',
   },
   {
+    href: '/software/',
+    label: 'Software',
+  },
+  {
     href: '/music/',
     label: 'Music',
   },

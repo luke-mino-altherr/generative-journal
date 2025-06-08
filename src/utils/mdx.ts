@@ -3,8 +3,9 @@ import { sync } from 'glob';
 import matter from 'gray-matter';
 import path from 'path';
 
-const articlesPath = path.join(process.cwd(), 'src', 'articles');
-const drawingsPath = path.join(process.cwd(), 'src', 'drawings');
+const articlesPath = path.join(process.cwd(), 'src', 'content', 'articles');
+const drawingsPath = path.join(process.cwd(), 'src', 'content', 'drawings');
+const projectsPath = path.join(process.cwd(), 'src', 'content', 'projects');
 
 export function getSlug(filePath: string) {
   const pathContent = filePath.split('/');
@@ -30,6 +31,11 @@ const getDrawingFromSlug = (slug: string) => {
   return getMdxContentFromPath(filePath);
 };
 
+const getProjectFromSlug = (slug: string) => {
+  const filePath = path.join(projectsPath, `${slug}.md`);
+  return getMdxContentFromPath(filePath);
+};
+
 const getArticles = () => {
   const paths = sync(`${articlesPath}/*.mdx`);
   return paths.map((p: string) => {
@@ -44,4 +50,18 @@ const getDrawings = () => {
   });
 };
 
-export { getArticleFromSlug, getArticles, getDrawingFromSlug, getDrawings };
+const getProjects = () => {
+  const paths = sync(`${projectsPath}/*.md`);
+  return paths.map((p: string) => {
+    return getMdxContentFromPath(p);
+  });
+};
+
+export {
+  getArticleFromSlug,
+  getArticles,
+  getDrawingFromSlug,
+  getDrawings,
+  getProjectFromSlug,
+  getProjects,
+};
