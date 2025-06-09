@@ -94,6 +94,9 @@
       "path": "@commitlint/cz-commitlint"
     }
   },
+  "resolutions": {
+    "string-width": "4.2.3"
+  },
   "release": {
     "branches": [
       "main"
