@@ -21,19 +21,21 @@ const Index = () => {
     >
       <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
         <div className="order-2 w-full items-center md:order-1 md:w-1/2">
-          <p>Hi, I&apos;m Luke.</p>
+          <p className="font-medium">Hi, I&apos;m Luke.</p>
           <p>
-            I am a <span className="font-bold">software engineer</span>,{' '}
-            <span className="font-bold">musician</span>, and{' '}
-            <span className="font-bold">artist</span>.
+            I&apos;m a <span className="font-medium">software engineer</span>,{' '}
+            <span className="font-medium">musician</span>, and{' '}
+            <span className="font-medium">artist</span> based in{' '}
+            <span className="font-medium">San Francisco</span>.
           </p>
           <p>
-            I am currently seeking work in{' '}
-            <span className="font-bold">San Francisco, California</span>.
+            I&apos;ve spent the last several years leading teams and building full-stack systems for
+            data-intensive and user-focused products.
           </p>
+
           <p>
             Most recently, from 2022 to 2025, I worked as a{' '}
-            <span className="font-bold">Staff Software Engineer</span> at{' '}
+            <span className="font-medium">Staff Software Engineer</span> at{' '}
             <a
               href="https://www.therounds.co"
               target="_blank"
@@ -52,7 +54,7 @@ const Index = () => {
               Misfits Market
             </a>
             . Before that, from 2017 to 2022, I was a{' '}
-            <span className="font-bold">Lead Software Engineer</span> at{' '}
+            <span className="font-medium">Lead Software Engineer</span> at{' '}
             <a
               href="https://www.known.is"
               target="_blank"
@@ -61,8 +63,13 @@ const Index = () => {
             >
               Known
             </a>
-            , where I built data products that helped drive advertising efficiency in the linear TV
-            industry.
+            , where I built data products that helped drive advertising efficiency in the linear
+            television space.
+          </p>
+
+          <p className="font-medium">
+            I am currently seeking my next role where I can make an impact building thoughtful,
+            human-centered applications.
           </p>
         </div>
         <div className="z-[1000] order-1 flex w-full items-center justify-center md:order-2 md:w-1/2">
