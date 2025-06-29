@@ -32,10 +32,31 @@ const Meta = (props: IMetaProps) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: seoConfig.person.name,
+    alternateName: ['Luke Mino-Altherr', 'Luke Mino Altherr'],
     url: seoConfig.siteUrl,
     sameAs: seoConfig.socialProfiles,
     jobTitle: seoConfig.person.jobTitle,
     email: seoConfig.person.email,
+    knowsAbout: [
+      'Software Engineering',
+      'Creative Coding',
+      'Generative Art',
+      'Music Production',
+      'p5.js',
+      'JavaScript',
+      'TypeScript',
+      'Full Stack Development',
+      'RNBO',
+      'Max/MSP',
+      'Web Audio API',
+    ],
+    alumniOf: 'Northeastern University',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'San Francisco',
+      addressRegion: 'CA',
+      addressCountry: 'US',
+    },
   };
 
   return (

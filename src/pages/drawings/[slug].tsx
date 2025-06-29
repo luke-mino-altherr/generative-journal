@@ -38,11 +38,18 @@ export default function Drawing({ post: { data } }: IDrawingProps) {
         transparentHeader
         meta={
           <Meta
-            title={data.title}
-            description={data.description}
+            title={`${data.title} - Luke Mino-Altherr`}
+            description={`${data.description} - Interactive generative art by Luke Mino-Altherr, software engineer and creative coder.`}
             type="article"
             publishedTime={data.publishedOn}
-            keywords={['generative art', 'creative coding', 'p5.js', 'digital art']}
+            keywords={[
+              'Luke Mino-Altherr',
+              'generative art',
+              'creative coding',
+              'p5.js',
+              'digital art',
+              'interactive art',
+            ]}
           />
         }
       >

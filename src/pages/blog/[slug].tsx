@@ -20,9 +20,30 @@ interface IBlogProps {
 export default function Blog({ post: { source, data } }: IBlogProps) {
   return (
     <React.Fragment>
-      <Main meta={<Meta title={data.title} description={data.description} />}>
+      <Main
+        meta={
+          <Meta
+            title={`${data.title} - Luke Mino-Altherr`}
+            description={`${data.description} - Written by Luke Mino-Altherr, software engineer and creative coder.`}
+            type="article"
+            publishedTime={data.publishedOn}
+            keywords={[
+              'Luke Mino-Altherr',
+              'software engineer',
+              'creative coding',
+              'generative art',
+            ]}
+          />
+        }
+      >
         <div>
           <h1>{data.title}</h1>
+          <div
+            className="mb-4 text-sm text-gray-600 dark:text-gray-400"
+            style={{ display: 'none' }}
+          >
+            By Luke Mino-Altherr
+          </div>
           <div className="content">
             <MDXRemote {...source} components={components} />
           </div>

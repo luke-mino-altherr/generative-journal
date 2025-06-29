@@ -12,10 +12,21 @@ const Index = () => {
     <Main
       meta={
         <Meta
-          title={AppConfig.title}
-          description={AppConfig.description}
+          title={`${AppConfig.title} - Luke Mino-Altherr`}
+          description={`${AppConfig.description}. Luke Mino-Altherr is a software engineer, musician, and artist based in San Francisco, specializing in creative coding, generative art, and full-stack development.`}
           canonical={AppConfig.seo.siteUrl}
-          keywords={['software engineer', 'portfolio', 'san francisco']}
+          keywords={[
+            'Luke Mino-Altherr',
+            'software engineer',
+            'portfolio',
+            'san francisco',
+            'creative coding',
+            'generative art',
+            'musician',
+            'artist',
+            'Luke Mino-Altherr software engineer',
+            'Luke Mino-Altherr San Francisco',
+          ]}
         />
       }
     >
@@ -75,7 +86,7 @@ const Index = () => {
         <div className="z-[1000] order-1 flex w-full items-center justify-center md:order-2 md:w-1/2">
           <img
             src="/assets/images/bio-1.JPG"
-            alt="Picture of Luke"
+            alt="Luke Mino-Altherr, Software Engineer, Musician and Artist"
             className="relative w-full max-w-md md:max-w-none"
           />
         </div>

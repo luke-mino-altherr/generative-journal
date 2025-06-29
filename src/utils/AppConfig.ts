@@ -13,6 +13,7 @@ export const AppConfig = {
     author: 'Luke Mino-Altherr',
     siteUrl: 'https://gen.minalt.xyz',
     keywords: [
+      'Luke Mino-Altherr',
       'creative coding',
       'p5.js',
       'generative art',
@@ -20,6 +21,16 @@ export const AppConfig = {
       'music',
       'art',
       'audio',
+      'RNBO',
+      'Max/MSP',
+      'Luke Mino-Altherr software engineer',
+      'Luke Mino-Altherr San Francisco',
+      'Luke Mino-Altherr creative coding',
+      'Luke Mino-Altherr generative art',
+      'interactive art',
+      'web audio',
+      'music technology',
+      'full stack developer',
     ],
 
     // Open Graph image configuration
