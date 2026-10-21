@@ -6,7 +6,7 @@ export const AppConfig = {
   site_name: 'generative-journal',
   title: 'Generative Journal',
   description:
-    'Luke Mino-Altherr is a backend and infrastructure engineering leader at Comfy (ComfyUI), and a musician and artist based in San Francisco.',
+    'Luke Mino-Altherr is a backend and infrastructure engineering leader at Comfy (ComfyUI), based in San Francisco.',
   locale: 'en',
 
   // SEO Configuration

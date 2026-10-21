@@ -35,10 +35,8 @@ const Index = () => {
           <p className="font-medium">Hi, I&apos;m Luke.</p>
           <p>
             I&apos;m a{' '}
-            <span className="font-medium">backend and infrastructure engineering leader</span>,{' '}
-            <span className="font-medium">musician</span>, and{' '}
-            <span className="font-medium">artist</span> based in{' '}
-            <span className="font-medium">San Francisco</span>.
+            <span className="font-medium">backend and infrastructure engineering leader</span> based
+            in <span className="font-medium">San Francisco</span>.
           </p>
           <p>
             Today I lead backend engineering at{' '}
@@ -76,6 +74,11 @@ const Index = () => {
             (2017–2022), leading teams that built data-intensive, user-focused products.
           </p>
           <p>
+            Outside of work, I&apos;m a <span className="font-medium">musician</span>,{' '}
+            <span className="font-medium">artist</span>, and{' '}
+            <span className="font-medium">hobbyist photographer</span>.
+          </p>
+          <p>
             Find me on{' '}
             <a
               href="https://www.linkedin.com/in/luke-mino-altherr/"
@@ -93,7 +96,7 @@ const Index = () => {
         <div className="z-[1000] order-1 flex w-full items-center justify-center md:order-2 md:w-1/2">
           <img
             src="/assets/images/bio-1.JPG"
-            alt="Luke Mino-Altherr, backend and infrastructure engineering leader, musician and artist"
+            alt="Luke Mino-Altherr, backend and infrastructure engineering leader"
             className="relative w-full max-w-md md:max-w-none"
           />
         </div>
