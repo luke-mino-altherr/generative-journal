@@ -5,7 +5,8 @@ import { colors } from '@/config/theme';
 export const AppConfig = {
   site_name: 'generative-journal',
   title: 'Generative Journal',
-  description: 'The digital workspace of Luke Mino-Altherr',
+  description:
+    'Luke Mino-Altherr is a backend and infrastructure engineering leader at Comfy (ComfyUI), and a musician and artist based in San Francisco.',
   locale: 'en',
 
   // SEO Configuration
@@ -50,6 +51,7 @@ export const AppConfig = {
     // Social media URLs for structured data
     socialProfiles: [
       'https://www.linkedin.com/in/luke-mino-altherr/',
+      'https://x.com/lukeminalt',
       'https://github.com/luke-mino-altherr',
       'https://soundcloud.com/minalt',
       'https://www.instagram.com/lminalt/',
@@ -58,7 +60,7 @@ export const AppConfig = {
     // Person structured data
     person: {
       name: 'Luke Mino-Altherr',
-      jobTitle: 'Software Engineer',
+      jobTitle: 'Backend and Infrastructure Engineering Leader',
       email: 'lminoaltherr@gmail.com',
     },
   },
