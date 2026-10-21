@@ -51,7 +51,6 @@ export const AppConfig = {
     // Social media URLs for structured data
     socialProfiles: [
       'https://www.linkedin.com/in/luke-mino-altherr/',
-      'https://x.com/lukeminalt',
       'https://github.com/luke-mino-altherr',
       'https://soundcloud.com/minalt',
       'https://www.instagram.com/lminalt/',

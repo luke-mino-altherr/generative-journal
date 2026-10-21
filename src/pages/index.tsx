@@ -86,15 +86,6 @@ const Index = () => {
               }
             >
               LinkedIn
-            </a>{' '}
-            and{' '}
-            <a
-              href="https://x.com/lukeminalt"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleOutboundClick('https://x.com/lukeminalt', 'X')}
-            >
-              X
             </a>
             .
           </p>
