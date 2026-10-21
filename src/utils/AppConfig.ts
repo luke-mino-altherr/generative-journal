@@ -5,7 +5,8 @@ import { colors } from '@/config/theme';
 export const AppConfig = {
   site_name: 'generative-journal',
   title: 'Generative Journal',
-  description: 'The digital workspace of Luke Mino-Altherr',
+  description:
+    'Luke Mino-Altherr is a backend and infrastructure engineering leader at Comfy (ComfyUI), based in San Francisco.',
   locale: 'en',
 
   // SEO Configuration
@@ -58,7 +59,7 @@ export const AppConfig = {
     // Person structured data
     person: {
       name: 'Luke Mino-Altherr',
-      jobTitle: 'Software Engineer',
+      jobTitle: 'Backend and Infrastructure Engineering Leader',
       email: 'lminoaltherr@gmail.com',
     },
   },

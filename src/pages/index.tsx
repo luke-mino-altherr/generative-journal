@@ -13,7 +13,7 @@ const Index = () => {
       meta={
         <Meta
           title={`${AppConfig.title} - Luke Mino-Altherr`}
-          description={`${AppConfig.description}. Luke Mino-Altherr is a software engineer, musician, and artist based in San Francisco, specializing in creative coding, generative art, and full-stack development.`}
+          description={AppConfig.description}
           canonical={AppConfig.seo.siteUrl}
           keywords={[
             'Luke Mino-Altherr',
@@ -34,19 +34,26 @@ const Index = () => {
         <div className="order-2 w-full items-center md:order-1 md:w-1/2">
           <p className="font-medium">Hi, I&apos;m Luke.</p>
           <p>
-            I&apos;m a <span className="font-medium">software engineer</span>,{' '}
-            <span className="font-medium">musician</span>, and{' '}
-            <span className="font-medium">artist</span> based in{' '}
-            <span className="font-medium">San Francisco</span>.
+            I&apos;m a{' '}
+            <span className="font-medium">backend and infrastructure engineering leader</span> based
+            in <span className="font-medium">San Francisco</span>.
           </p>
           <p>
-            I&apos;ve spent the last several years leading teams and building full-stack systems for
-            data-intensive and user-focused products.
+            Today I lead backend engineering at{' '}
+            <a
+              href="https://www.comfy.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleOutboundClick('https://www.comfy.org', 'Comfy')}
+            >
+              Comfy
+            </a>
+            , the company behind ComfyUI, the open-source tool for visual and creative AI. My team
+            builds the platform under Comfy Cloud, Comfy API, and Comfy Agent, turning creative AI
+            workflows into reliable, scalable services.
           </p>
-
           <p>
-            Most recently, from 2022 to 2025, I worked as a{' '}
-            <span className="font-medium">Staff Software Engineer</span> at{' '}
+            Before Comfy, I was a <span className="font-medium">Staff Software Engineer</span> at{' '}
             <a
               href="https://www.therounds.co"
               target="_blank"
@@ -54,18 +61,8 @@ const Index = () => {
               onClick={() => handleOutboundClick('https://www.therounds.co', 'The Rounds')}
             >
               The Rounds
-            </a>
-            , a sustainable food delivery service that was recently acquired by{' '}
-            <a
-              href="https://www.misfitsmarket.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleOutboundClick('https://www.misfitsmarket.com', 'Misfits Market')}
-            >
-              Misfits Market
-            </a>
-            . Before that, from 2017 to 2022, I was a{' '}
-            <span className="font-medium">Lead Software Engineer</span> at{' '}
+            </a>{' '}
+            (2022–2025) and a <span className="font-medium">Lead Software Engineer</span> at{' '}
             <a
               href="https://www.known.is"
               target="_blank"
@@ -73,20 +70,33 @@ const Index = () => {
               onClick={() => handleOutboundClick('https://www.known.is', 'Known')}
             >
               Known
-            </a>
-            , where I built data products that helped drive advertising efficiency in the linear
-            television space.
+            </a>{' '}
+            (2017–2022), leading teams that built data-intensive, user-focused products.
           </p>
-
-          <p className="font-medium">
-            I am currently seeking my next role where I can make an impact building thoughtful,
-            human-centered applications.
+          <p>
+            Outside of work, I&apos;m a <span className="font-medium">musician</span>,{' '}
+            <span className="font-medium">artist</span>, and{' '}
+            <span className="font-medium">hobbyist photographer</span>.
+          </p>
+          <p>
+            Find me on{' '}
+            <a
+              href="https://www.linkedin.com/in/luke-mino-altherr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                handleOutboundClick('https://www.linkedin.com/in/luke-mino-altherr/', 'LinkedIn')
+              }
+            >
+              LinkedIn
+            </a>
+            .
           </p>
         </div>
         <div className="z-[1000] order-1 flex w-full items-center justify-center md:order-2 md:w-1/2">
           <img
             src="/assets/images/bio-1.JPG"
-            alt="Luke Mino-Altherr, Software Engineer, Musician and Artist"
+            alt="Luke Mino-Altherr, backend and infrastructure engineering leader"
             className="relative w-full max-w-md md:max-w-none"
           />
         </div>
